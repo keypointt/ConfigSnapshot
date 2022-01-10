@@ -4,12 +4,14 @@ from shutil import copytree
 import os
 
 ### Todo: set below values
+from constants import root_dir, source_config_folder_list, source_config_file_list
+
 custom_description = "_alb_us_west_1"
-root_dir = "/home/xin/config_backup/"
 
 ### create folder name with timestamp
 today = datetime.now()
-snapshot_dir = root_dir + today.strftime('%Y%m%d%H%M%S')
+snapshot_dir = root_dir + today.strftime('%Y%m%d%H')
+# snapshot_dir = root_dir + today.strftime('%Y%m%d%H%M%S')
 snapshot_dir = snapshot_dir + custom_description
 
 if not os.path.exists(snapshot_dir):
@@ -17,13 +19,12 @@ if not os.path.exists(snapshot_dir):
 
 
 # whole folder
-with open("./config_folder_list") as file:
+with open(source_config_folder_list) as file:
     lines = file.readlines()
     for src in lines:
         src = src.rstrip()
         dst = snapshot_dir + "/" + src.split("/")[-1]
-        print(src)
-        print(dst)
+        print("snapshot config folders. from: " + src + ", to: " + dst)
 
         # set to false to avoid overwrite existing snapshot
         # but if above date format is to seconds, then here it does not matter
@@ -31,11 +32,11 @@ with open("./config_folder_list") as file:
 
 
 # single files
-with open("./config_file_list") as file:
+with open(source_config_file_list) as file:
     lines = file.readlines()
     for src in lines:
         src = src.rstrip()
         dst = snapshot_dir + "/" + src.split("/")[-1]
-        print(src)
-        print(dst)
+
+        print("snapshot config files. from: " + src + ", to: " + dst)
         copyfile(src, dst)

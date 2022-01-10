@@ -30,10 +30,19 @@ Use cases:
 
 ## How does it work
 
-```
+### Snapshot
+```shell
 chmod 744 snapshot_config.py
 
 python3 snapshot_config.py
+```
+
+### Restore
+```shell
+chmod 744 snapshot_config.py
+
+python3 restore_snapshot_config.py /home/xin/config_snapshot/20220110100201_alb_us_west_1
+
 ```
 
 ## Tested Environment
