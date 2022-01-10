@@ -2,11 +2,13 @@ from datetime import datetime
 from shutil import copyfile
 from shutil import copytree
 import os
+import sys
 
 ### Todo: set below values
 from constants import root_dir, source_config_folder_list, source_config_file_list
 
-custom_description = "_alb_us_west_1"
+custom_description = sys.argv[1]
+# custom_description = "_alb_us_west_1"
 
 ### create folder name with timestamp
 today = datetime.now()

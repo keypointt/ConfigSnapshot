@@ -34,14 +34,26 @@ Use cases:
 ```shell
 chmod 744 snapshot_config.py
 
-python3 snapshot_config.py
+python3 snapshot_config.py  <custome_description> # default is empty description
+
+# example
+python3 snapshot_config.py awsLbWorking
+
+ll ~/config_snapshot/
+total 68
+drwxrwxr-x 17 xin xin 4096 Jan 10 10:31 ./
+drwxr-xr-x 34 xin xin 4096 Jan 10 10:22 ../
+drwxrwxr-x  7 xin xin 4096 Jan 10 10:31 2022011010awsLbWorking/
 ```
 
 ### Restore
 ```shell
 chmod 744 snapshot_config.py
 
-python3 restore_snapshot_config.py /home/xin/config_snapshot/20220110100201_alb_us_west_1
+python3 restore_snapshot_config.py <target_snapshot_path_to_be_restored>
+
+# example
+python3 restore_snapshot_config.py ~/config_snapshot/2022011010awsLbWorking
 
 ```
 
