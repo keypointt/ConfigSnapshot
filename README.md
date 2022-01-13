@@ -61,8 +61,6 @@ python3 restore_snapshot_config.py ~/config_snapshot/2022011010awsLbWorking
 Ubuntu 20.04
 
 ## TODO
-* restore from a specific snapshot
-  * walkaround: manually copy back...hehehe...lol
 * back up option to cloud providers like AWS/Azure/GCP.
 
 ## Reference
